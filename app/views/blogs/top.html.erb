@@ -1,0 +1,19 @@
+<div class = "main row">
+  <div class = "subject col-md-6">
+    <p>「想い」を「言葉」に<br>してみよう</p>
+    <div class = 'buttom'>
+      <%= link_to 'ブログを書く', new_blog_path, class: 'btn btn-primary lg link_to' %>
+      <br>
+      <%= link_to 'ブログを振り返る', blogs_path, class: 'btn btn-default lg link_to' %>
+    </div>
+  </div>
+  <div class = "top_img  col-md-6">
+      <%= image_tag "background.jpg", class: 'image_area' %>
+      <div class = "explanation">
+        <p>「かんたんブログ」は、<br>あなたの「言葉」をお預かりします。<br><br>
+           １４０個の文字で<br>あなたの「想い」をつづってください。<br>
+        </p>
+        <%= link_to 'さっそくブログを書いてみる', new_blog_path, class: 'btn btn-primary lg link_to' %>
+      </div>
+  </div>
+</div>

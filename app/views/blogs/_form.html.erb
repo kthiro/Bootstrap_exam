@@ -1,0 +1,44 @@
+<div class = "panel-body">
+  <% if @blog.errors.any? %>
+    <div class="alert alert-danger error_message" role="alert">
+      <h4><%= @blog.errors.count %>件のエラーがあります！</h4>
+      <ul>
+        <% @blog.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+</div>
+
+  <div class = "form panel-footer">
+    <%= form_with(model: @blog, local: true, url: choose_path_new_or_edit) do |form| %>
+    
+    
+      <div class = "title panel panel-primary">
+        <div class = "item panel-heading">
+          <%= form.label 'タイトル', class: "panel-title" %>
+        </div>
+        <div class = "input_area panel-body">
+          <%= form.text_field :title, class: "form-control", placeholder: "タイトル" %>
+        </div>
+      </div>
+    
+    
+      <div class = "content panel panel-primary">
+        <div class = "item panel-heading">
+          <%= form.label '本文', class: "panel-title" %>
+        </div>
+        <div class = "input_area panel-body">
+          <%= form.text_area :content, class: "form-control", rows: "5", placeholder: "本文" %>
+        </div>
+      </div>
+    
+    
+      <div class = "submit">
+        <div class = "buttom">
+          <%= form.submit '登録する', class: "btn btn-default" %>
+        </div>
+      </div>
+    <% end %>
+  </div>

@@ -1,0 +1,66 @@
+// Place all the styles related to the blogs controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+html {
+  font-size: 62.5%;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+.header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.main {
+  position: absolute;
+  top: 5rem;
+  bottom: 5%;
+  width: 100%;
+  margin: 0;
+  overflow-y: scroll;
+}
+
+.main
+.table {
+  background-color: white;
+}
+
+.main
+.notice {
+  color: #8a6d3b;
+}
+
+footer {
+  position: absolute;
+  top: 95%;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  border-top: solid 0.1rem lightgray;
+  background-color: lightgray;
+}
+
+.footer
+footer {
+  font-size: 1.2rem;
+  color: gray;
+  margin: 0;
+  border: 0;
+}
+
+.footer
+footer
+p {
+  margin: 0.75% 0;
+}
