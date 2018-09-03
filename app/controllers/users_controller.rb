@@ -13,10 +13,20 @@ class UsersController < ApplicationController
   end
   
   def create
-    @user = User.create(user_params)
-    flash[:success] = "アカウントを作成しました！作成したアカウントでログインしてください。"
-    redirect_to new_session_path
+    @user = User.new(user_params)
     
+    begin
+      if @user.save
+        flash[:success] = "アカウントを作成しました！作成したアカウントでログインしてください。"
+        redirect_to new_session_path
+      else
+        render 'new'
+      end
+    rescue ActiveRecord::RecordNotUnique => e
+      flash[:danger] = "既に登録済みのメールアドレスです。他のメールアドレスで登録してください。"
+      render 'new'
+    end
+
   end
   
   def show
