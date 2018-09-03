@@ -1,0 +1,26 @@
+<div class = "panel panel-info">
+  <h2 class = "panel-heading">プロフィール</h2>
+
+  <div class = "panel-footer">
+    <% if notice %>
+      <p class = "alert alert-warning" role = "alert"><%= notice %></p>
+    <% end %>
+    
+    <div class = "panel panel-primary">
+      <div class = "panel-heading">
+        ユーザーネーム
+      </div>
+      <div class = "panel-body">
+        <%= @user.name %>
+      </div>
+    </div>
+    <div class = "panel panel-primary">
+      <div class = "panel-heading">
+        メールアドレス
+      </div>
+      <div class = "panel-body">
+        <%= @user.email %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<div class = "panel panel-info">
+  <h2 class = "panel-heading">かんたんブログにログイン</h2>
+  
+  <div class = "panel-footer">
+    <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
+
+      <% flash.each do |key, value| %>
+        <%= content_tag :div, "", class: ["alert", "alert-#{key}"], role: "alert" do%>
+          <%= content_tag :p, value, class: nil %>
+        <% end %>
+      <% end %>
+  
+      <div class = "panel panel-primary">
+        <div class = "panel-heading">
+          <%= f.label 'メールアドレス' %>
+        </div>
+        <div class = "panel-body">
+          <%= f.text_field :email, class: "form-control", placeholder: "メールアドレス" %>
+        </div>
+      </div>
+      <div class = "panel panel-primary">
+        <div class = "panel-heading">
+          <%= f.label 'パスワード' %>
+        </div>
+        <div class = "panel-body">
+          <%= f.password_field :password, class: "form-control", placeholder: "パスワード" %>
+        </div>
+      </div>
+      <%= f.submit 'ログイン', class: "btn btn-default" %>
+    <% end %>
+  </div>
+</div>
