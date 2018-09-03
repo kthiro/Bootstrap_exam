@@ -23,7 +23,7 @@ class UsersController < ApplicationController
         render 'new'
       end
     rescue ActiveRecord::RecordNotUnique => e
-      flash[:danger] = "既に登録済みのメールアドレスです。他のメールアドレスで登録してください。"
+      flash.now[:danger] = "既に登録済みのメールアドレスです。他のメールアドレスで登録してください。"
       render 'new'
     end
 
