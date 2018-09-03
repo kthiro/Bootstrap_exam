@@ -1,0 +1,59 @@
+<div class = "panel panel-info">
+  <h2 class = "panel-heading">アカウント作成</h2>
+
+  <div class = "panel-footer">
+    <%= form_with(model: @user, url: confirm_users_path, local: true) do |f| %>
+
+      <% if @user.errors.any? %>
+      　<div class = "alert alert-danger" role = "alert">
+          <p><%= @user.errors.count %>件のエラーがあります。</p>
+          <ul>
+            <% @user.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      
+      <% flash.each do |key, value| %>
+        <%= content_tag :div, value, class: ["alert", "alert-#{key}"], role: "alert"%>
+      <% end %>
+
+      <div class = "panel panel-primary">
+        <div class = "panel-heading">
+          <%= f.label 'ユーザーネーム' %>
+        </div>
+        <div class = "panel-body">
+          <%= f.text_field :name, class: "form-control", placeholder: "ユーザーネーム" %>
+        </div>
+      </div>
+      <div class = "panel panel-primary">
+        <div class = "panel-heading">
+          <%= f.label 'メールアドレス' %>
+        </div>
+        <div class = "panel-body">
+          <%= f.text_field :email, class: "form-control", placeholder: "メールアドレス" %>
+        </div>
+      </div>
+      <div class = "panel panel-primary">
+        <div class = "panel-heading">
+          <%= f.label 'パスワード' %>
+        </div>
+        <div class = "panel-body">
+          <%= f.password_field :password, class: "form-control", placeholder: "パスワード" %>
+        </div>
+      </div>  
+      <div class = "panel panel-primary">
+        <div class = "panel-heading">
+          <%= f.label 'パスワードの確認' %>
+        </div>
+        <div class = "panel-body">
+          <%= f.password_field :password_confirmation, class: "form-control", placeholder: "パスワードをもう一度入力" %>
+        </div>
+      </div>
+      <div class = "buttom">
+        <%= f.submit '登録内容を確認する', class: "btn btn-info" %>
+      </div>
+    <% end %>
+  </div>
+</div>

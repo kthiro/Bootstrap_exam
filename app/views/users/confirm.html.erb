@@ -1,0 +1,37 @@
+<div class = "panel panel-info">
+  <h2 class = "panel-heading">登録内容の確認</h2>
+
+  <div class = "panel-footer">
+    <%= form_with(model: @user, local: true) do |f| %>
+      <%= f.hidden_field :name %>
+      <%= f.hidden_field :email %>
+      <%= f.hidden_field :password %>
+      <%= f.hidden_field :password_confirmation %>
+
+
+      <div class = "panel panel-warning">
+        <div class = "panel-heading">ユーザーネーム</div>
+        <div class = "panel-body"><%= @user[:name] %></div>
+      </div>
+      <div class = "panel panel-warning">
+        <div class = "panel-heading">メールアドレス</div>
+        <div class = "panel-body"><%= @user[:email] %></div>
+      </div>
+      <div class = "panel panel-warning">
+        <div class = "panel-heading">パスワード</div>
+        <div class = "panel-body">セキュリティ保護のため表示されません</div>
+      </div>
+  
+      <%= f.submit 'この内容でアカウントを作成する', class: "btn btn-default" %>
+    <% end %>
+
+    <%= form_with(model: @user, local: true, url: new_user_path, method: "get") do |f| %>
+      <%= f.hidden_field :name %>
+      <%= f.hidden_field :email %>
+      <%= f.hidden_field :password %>
+      <%= f.hidden_field :password_confirmation %>
+  
+      <%= f.submit '戻る', name: 'back', class: "btn btn-default" %>
+    <% end %>
+  </div>
+</div>
