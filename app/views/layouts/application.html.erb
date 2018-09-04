@@ -29,7 +29,7 @@
                   <li><a href="/top">top</a></li>
                   <li><a href="/blogs/new">ブログ新規作成</a></li>
                   <li><a href="/blogs">ブログ一覧画面</a></li>
-                  <li><%= link_to 'プロフィール', user_path(current_user.id) %></li>
+                  <li><%= link_to "#{current_user[:name]}さんのプロフィール", user_path(current_user.id) %></li>
                   <li><%= link_to 'ログアウト', session_path(current_user.id), method: :delete %></li>
                 <% else %>
                   <li><%= link_to 'ログイン', new_session_path %></li>

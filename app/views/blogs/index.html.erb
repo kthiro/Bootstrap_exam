@@ -9,8 +9,10 @@
       <tr>
         <th>タイトル</th>
         <th>本文</th>
+        <th>投稿者</th>
         <th>作成日時</th>
         <th>更新日時</th>
+        <th></th>
         <th></th>
         <th></th>
       </tr>
@@ -18,10 +20,24 @@
         <tr>
           <td><%= blog.title %></td>
           <td><%= blog.content %></td>
+          <td><%= blog.user_id %></td>
           <td><%= blog.created_at %></td>
           <td><%= blog.updated_at %></td>
-          <td><%= link_to 'ブログを編集する', edit_blog_path(blog[:id]), data: {confirm: 'このブログを編集しますか？'}, class: 'btn btn-success' %></td>
-          <td><%= link_to 'ブログを削除する', blog_path(blog[:id]), method: :delete, data: {confirm: '本当に削除して良いですか？'}, class: 'btn btn-danger' %></td>
+          <td><%= link_to 'ブログの詳細', blog_path(blog[:id]), class: 'btn btn-info' %></td>
+          <td>
+            <% if current_user[:id] == blog[:user_id] %>
+              <%= link_to 'ブログを編集する', edit_blog_path(blog[:id]), data: {confirm: 'このブログを編集しますか？'}, class: 'btn btn-success' %>
+            <% else %>
+              投稿者以外編集できません
+            <% end %>
+          </td>
+          <td>
+            <% if current_user[:id] == blog[:user_id] %>
+              <%= link_to 'ブログを削除する', blog_path(blog[:id]), method: :delete, data: {confirm: '本当に削除して良いですか？'}, class: 'btn btn-danger' %>
+            <% else %>
+              投稿者以外削除できません
+            <% end %>
+          </td>
         </tr>
       <% end %>
     </table>

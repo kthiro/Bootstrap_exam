@@ -6,6 +6,7 @@
 
     <%= form.hidden_field :title %>
     <%= form.hidden_field :content %>
+    <%= form.hidden_field :user_id %>
       <div class = "title panel panel-warning">
         <div class = "item panel-heading">
           <p class = "panel-title">タイトル</p>
@@ -32,6 +33,7 @@
     <%= form_with(model: @blog, local: true, url: new_blog_path, method: 'get') do |form| %>
       <%= form.hidden_field :title %>
       <%= form.hidden_field :content %>
+      <%= form.hidden_field :user_id %>
       <div class = "submit">
         <div class = "buttom">
           <%= form.submit '戻る', name: 'back', class: 'btn btn-default'  %>
