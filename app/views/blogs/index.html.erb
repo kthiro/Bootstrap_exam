@@ -20,7 +20,7 @@
         <tr>
           <td><%= blog.title %></td>
           <td><%= blog.content %></td>
-          <td><%= blog.user_id %></td>
+          <td><%= User.find(blog.user_id).name %></td>
           <td><%= blog.created_at %></td>
           <td><%= blog.updated_at %></td>
           <td><%= link_to 'ブログの詳細', blog_path(blog[:id]), class: 'btn btn-info' %></td>
