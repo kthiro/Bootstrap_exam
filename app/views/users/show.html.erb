@@ -45,7 +45,7 @@
               <strong><%= link_to blog[:title], blog_path(blog[:id]) %></strong>
               <div><%= blog[:content] %></div>
               <br>
-              <em>posted by <%= User.find(blog[:user_id])[:name] %></em>
+              <em>posted by <%= current_user[:name] %></em>
               <small>updated_at <%= blog[:updated_at] %></small>
             </li>
           <% end %>
