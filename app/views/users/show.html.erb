@@ -26,13 +26,13 @@
       <div class = "col-md-6 panel panel-info">
         <h4 class = "panel-heading">お気に入り一覧</h4>
         <ul class = "list-group">
-          <% @favorite_blogs.each do |f_blog| %>
+          <% @favorite_blogs.each do |favorite_blog| %>
             <li class = "list-group-item">
-              <strong><%= link_to f_blog[:title], blog_path(f_blog[:id]) %></strong>
-              <div><%= f_blog[:content] %></div>
+              <strong><%= link_to favorite_blog[:title], blog_path(favorite_blog[:id]) %></strong>
+              <div><%= favorite_blog[:content] %></div>
               <br>
-              <em>posted by <%= User.find(f_blog[:user_id])[:name] %></em>
-              <small>updated_at <%= f_blog[:updated_at] %></small>
+              <em>posted by <%= User.find(favorite_blog[:user_id])[:name] %></em>
+              <small>updated_at <%= favorite_blog[:updated_at] %></small>
             </li>
           <% end %>
         </ul>
@@ -45,7 +45,7 @@
               <strong><%= link_to blog[:title], blog_path(blog[:id]) %></strong>
               <div><%= blog[:content] %></div>
               <br>
-              <em>posted by <%= current_user.id %></em>
+              <em>posted by <%= User.find(blog[:user_id])[:name] %></em>
               <small>updated_at <%= blog[:updated_at] %></small>
             </li>
           <% end %>
