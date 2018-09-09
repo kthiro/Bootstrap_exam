@@ -1,0 +1,25 @@
+ja:
+  activerecord:
+    models:
+      blog: "ブログ"
+      user: "ユーザー"
+      favorite: "お気に入り"
+    attributes:
+      blog:
+        title: "タイトル"
+        content: "本文"
+        created_at: "作成日時"
+        updated_at: "更新日時"
+        user_id: "ユーザーID"
+      favorite:
+        user_id: "ユーザーID"
+        blog_id: "ブログID"
+        created_at: "作成日時"
+        updated_at: "更新日時"
+      user:
+        name: "ユーザーネーム"
+        email: "メールアドレス"
+        password: "パスワード"
+        password_confirmation: "確認用パスワード"
+        created_at: "作成日時"
+        updated_at: "更新日時"
