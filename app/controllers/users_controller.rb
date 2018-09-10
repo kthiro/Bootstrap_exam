@@ -44,6 +44,8 @@ class UsersController < ApplicationController
   end
   
   def image_retrieves_from_cache
-    @user.image.retrieve_from_cache! params[:cache][:image] if @user.image.url
+    unless params[:cache][:image] == ""
+      @user.image.retrieve_from_cache! params[:cache][:image]
+    end
   end
 end
