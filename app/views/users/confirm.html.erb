@@ -22,8 +22,12 @@
         <div class = "panel-body">セキュリティ保護のため表示されません</div>
       </div>
       <div>
-        <%= image_tag(@user.image.url) %>
-        <%= hidden_field_tag :"cache[image]", @user.image.cache_name %>
+        <% if @user.image.url %>
+          <%= image_tag(@user.image.url) %>
+          <%= hidden_field_tag :"cache[image]", @user.image.cache_name %>
+        <% else %>
+          <strong>プロフィール画像が無い状態で登録します。</strong>
+        <% end %>
       </div>
   
       <%= f.submit 'この内容でアカウントを作成する', class: "btn btn-default" %>

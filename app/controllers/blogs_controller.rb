@@ -75,6 +75,6 @@ class BlogsController < ApplicationController
   end
   
   def image_retrieves_from_cache
-    @blog.image.retrieve_from_cache! params[:cache][:image]
+    @blog.image.retrieve_from_cache! params[:cache][:image] if @blog.image.url
   end
 end

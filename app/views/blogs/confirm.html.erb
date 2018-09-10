@@ -26,7 +26,11 @@
         </div>
       </div>
       <div>
-        <%= image_tag(@blog.image) %>
+        <% if @blog.image.url %>
+          <%= image_tag(@blog.image.url) %>
+        <% else %>
+          <strong>画像が無いまま投稿します。</strong>
+        <% end %>
       </div>
       <div class = "submit">
         <div class = "buttom">
