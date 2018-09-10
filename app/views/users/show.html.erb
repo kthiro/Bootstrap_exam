@@ -12,7 +12,11 @@
           プロフィール画像
         </div>
         <div class = "panel-body">
-          <%= image_tag(@user.image.url) %>
+          <% if @user.image.url %>
+            <%= image_tag(@user.image.url) %>
+          <% else %>
+            プロフィール画像がありません。
+          <% end %>
         </div>
       </div>
     </div>
