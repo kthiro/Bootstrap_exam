@@ -21,6 +21,10 @@
         <div class = "panel-heading">パスワード</div>
         <div class = "panel-body">セキュリティ保護のため表示されません</div>
       </div>
+      <div>
+        <%= image_tag(@user.image.url) %>
+        <%= hidden_field_tag :"cache[image]", @user.image.cache_name %>
+      </div>
   
       <%= f.submit 'この内容でアカウントを作成する', class: "btn btn-default" %>
     <% end %>
@@ -28,9 +32,8 @@
     <%= form_with(model: @user, local: true, url: new_user_path, method: "get") do |f| %>
       <%= f.hidden_field :name %>
       <%= f.hidden_field :email %>
-      <%= f.hidden_field :password %>
-      <%= f.hidden_field :password_confirmation %>
   
+      <%= hidden_field_tag :"cache[image]", @user.image.cache_name %>
       <%= f.submit '戻る', name: 'back', class: "btn btn-default" %>
     <% end %>
   </div>

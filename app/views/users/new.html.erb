@@ -51,6 +51,12 @@
           <%= f.password_field :password_confirmation, class: "form-control", placeholder: "パスワードをもう一度入力" %>
         </div>
       </div>
+      <div>
+          <%= f.label 'プロフィール画像' %>
+          <%= image_tag(@user.image.url) if @user.image.url %>
+          <%= f.file_field :image, id: :user_image %>
+          <%= f.hidden_field :image_cache %>
+      </div>
       <div class = "buttom">
         <%= f.submit '登録内容を確認する', class: "btn btn-info" %>
       </div>

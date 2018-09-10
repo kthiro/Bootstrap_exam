@@ -8,6 +8,7 @@
     <table class = "table table-hover">
       <tr>
         <th>タイトル</th>
+        <th>画像</th>
         <th>本文</th>
         <th>投稿者</th>
         <th>作成日時</th>
@@ -19,6 +20,13 @@
       <% @blog.each do |blog| %>
         <tr>
           <td><%= blog.title %></td>
+          <td>
+            <% if blog.image.url %>
+              <%= image_tag(blog.image.url) %>
+            <% else %>
+              なし
+            <% end %>
+          </td>
           <td><%= blog.content %></td>
           <td><%= User.find(blog.user_id).name %></td>
           <td><%= blog.created_at %></td>

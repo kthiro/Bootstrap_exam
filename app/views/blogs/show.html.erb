@@ -1,17 +1,31 @@
 <div class = "panel panel-info">
   <h2 class = "panel-heading">ブログの詳細</h2>
-  
-  <div class = "panel-body">
-    <strong><%= @blog[:title] %></strong>
-    <div><%= @blog[:content] %></div>
-    <br>
-    <em>posted by <%= @user.name %></em>
-    <small>updated_at </updated_at><%= @blog[:updated_at] %></small>
-    </div>
-    <% if @favorite %>
-      <%= link_to 'お気に入りを解除', favorite_path(id: @favorite[:id]), method: :delete, class: 'btn btn-warning' %>
-    <% else %>
-      <%= link_to 'お気に入りに追加', favorites_path(blog_id: @blog[:id]), method: :post, class: 'btn btn-primary' %>
-    <% end %>
+  <div class = "panel-body row">
+        <strong><%= @blog[:title] %></strong>
+        <br>
+        <br>
+        <div class = "col-xs-3">
+          <div class = "image">
+            <% if @blog.image.url %>
+              <%= image_tag(@blog.image.url) %>
+            <% else %>
+              画像の投稿はありません。
+            <% end %>
+          </div>
+        </div>
+        <div class = "col-xs-9">
+          <div class = "text">
+            <%= @blog[:content] %>
+          </div>
+        </div>
+  </div>
+  <div class = "panel-footer">
+        <em>投稿者 <%= @user.name %></em>
+        <small>　　更新日時 <%= @blog[:updated_at] %></small>
   </div>
 </div>
+<% if @favorite %>
+  <%= link_to 'お気に入りを解除', favorite_path(id: @favorite[:id]), method: :delete, class: 'btn btn-warning' %>
+<% else %>
+  <%= link_to 'お気に入りに追加', favorites_path(blog_id: @blog[:id]), method: :post, class: 'btn btn-primary' %>
+<% end %>

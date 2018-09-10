@@ -33,6 +33,12 @@
         <div class = "input_area panel-body">
           <%= form.text_area :content, class: "form-control", rows: "5", placeholder: "本文" %>
         </div>
+        <div>
+          <%= form.label '画像' %>
+          <%= image_tag(@blog.image.url) if @blog.image.url %>
+          <%= form.file_field :image %>
+          <%= form.hidden_field :image_cache %>
+        </div>
       </div>
     
     

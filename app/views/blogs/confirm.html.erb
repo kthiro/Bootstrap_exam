@@ -7,6 +7,8 @@
     <%= form.hidden_field :title %>
     <%= form.hidden_field :content %>
     <%= form.hidden_field :user_id %>
+    <%= hidden_field_tag :"cache[image]", @blog.image.cache_name %>
+    
       <div class = "title panel panel-warning">
         <div class = "item panel-heading">
           <p class = "panel-title">タイトル</p>
@@ -23,6 +25,9 @@
           <p><%= @blog.content %></p>
         </div>
       </div>
+      <div>
+        <%= image_tag(@blog.image) %>
+      </div>
       <div class = "submit">
         <div class = "buttom">
           <%= form.submit 'この内容で登録する', class: 'btn btn-default' %>
@@ -34,6 +39,8 @@
       <%= form.hidden_field :title %>
       <%= form.hidden_field :content %>
       <%= form.hidden_field :user_id %>
+      <%= hidden_field_tag :"cache[image]", @blog.image.cache_name %>
+      
       <div class = "submit">
         <div class = "buttom">
           <%= form.submit '戻る', name: 'back', class: 'btn btn-default'  %>

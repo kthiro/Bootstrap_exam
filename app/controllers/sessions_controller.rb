@@ -24,8 +24,7 @@ class SessionsController < ApplicationController
   
   private
   
-    def redirect_to_user_profile
-      redirect_to user_path(current_user.id), notice: '既にログインしています！' if logged_in?
-    end
-  
+  def redirect_to_user_profile
+    redirect_to user_path(current_user.id), notice: '既にログインしています！' if logged_in?
+  end
 end

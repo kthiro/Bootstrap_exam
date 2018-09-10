@@ -10,5 +10,4 @@ class FavoritesController < ApplicationController
     @favorite.destroy
     redirect_to blogs_path, notice: 'お気に入りを解除しました'
   end
-
 end
