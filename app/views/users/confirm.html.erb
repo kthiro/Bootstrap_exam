@@ -7,6 +7,7 @@
       <%= f.hidden_field :email %>
       <%= f.hidden_field :password %>
       <%= f.hidden_field :password_confirmation %>
+      <%= hidden_field_tag :"cache[image]", @user.image.cache_name %>
 
 
       <div class = "panel panel-warning">
@@ -24,7 +25,6 @@
       <div>
         <% if @user.image.url %>
           <%= image_tag(@user.image.url) %>
-          <%= hidden_field_tag :"cache[image]", @user.image.cache_name %>
         <% else %>
           <strong>プロフィール画像が無い状態で登録します。</strong>
         <% end %>
@@ -36,8 +36,8 @@
     <%= form_with(model: @user, local: true, url: new_user_path, method: "get") do |f| %>
       <%= f.hidden_field :name %>
       <%= f.hidden_field :email %>
-  
       <%= hidden_field_tag :"cache[image]", @user.image.cache_name %>
+      
       <%= f.submit '戻る', name: 'back', class: "btn btn-default" %>
     <% end %>
   </div>

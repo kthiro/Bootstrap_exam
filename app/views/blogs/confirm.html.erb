@@ -28,7 +28,6 @@
       <div>
         <% if @blog.image.url %>
           <%= image_tag(@blog.image.url) %>
-          <%= hidden_field_tag :"cache[image]",@blog.image.cache_name %>
         <% else %>
           <strong>画像が無いまま投稿します。</strong>
         <% end %>
