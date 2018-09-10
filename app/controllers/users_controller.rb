@@ -16,7 +16,6 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     image_retrieves_from_cache
-    @user.save!
     
     begin
       if @user.save
@@ -25,7 +24,7 @@ class UsersController < ApplicationController
       else
         render 'new'
       end
-    rescue ActiveRecord::RecordNotUnique => e
+    rescue ActiveRecord::RecordNotUnique
       flash.now[:danger] = "既に登録済みのメールアドレスです。他のメールアドレスで登録してください。"
       render 'new'
     end
